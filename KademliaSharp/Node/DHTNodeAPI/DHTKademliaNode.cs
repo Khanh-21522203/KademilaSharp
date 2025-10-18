@@ -1,7 +1,7 @@
 using System.Numerics;
 using KademliaSharp.Connection;
 using KademliaSharp.Model;
-using KademliaSharp.Node.NodeAPI;
+using KademliaSharp.Node.Decorator;
 using KademliaSharp.Repository;
 
 namespace KademliaSharp.Node.DHTNodeAPI;

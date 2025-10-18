@@ -16,8 +16,8 @@ public interface IKademliaNodeApi<TId, TC>: INode<TId, TC>
     Task<bool> StartAsync(INode<TId, TC> bootstrapNode);
     void Stop();
     void StopImmediate();
-    bool IsRunning { get; }
-    IMessageSender<TId, TC> MessageSender { get; }
+    bool IsRunning();
+    IMessageSender<TId, TC> MessageSender();
 
     // NodeSettings NodeSettings { get; }
 
