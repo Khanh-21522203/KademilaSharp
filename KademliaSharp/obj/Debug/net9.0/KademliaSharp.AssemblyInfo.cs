@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KademliaSharp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d716078df189921eb6a7230b29ae6e7ee7399954")]
 [assembly: System.Reflection.AssemblyProductAttribute("KademliaSharp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KademliaSharp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
