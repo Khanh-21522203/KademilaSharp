@@ -4,10 +4,11 @@ using KademliaSharp.Node.Strategies;
 using KademliaSharp.protocol.handler;
 using KademliaSharp.protocol.message;
 using KademliaSharp.RoutingTable;
+using KademliaSharp.RoutingTable.Bucket;
 
 namespace KademliaSharp.Node.NodeAPI;
 
-public class KademliaNode<TId, TC>: IKademliaNodeApi<TId, TC>
+public class KademliaNode<TId, TC>(TId id, TC connection) : Node<TId, TC>(id, connection), IKademliaNodeApi<TId, TC>
     where TId : INumber<TId>
     where TC : IConnection
 {
@@ -31,7 +32,7 @@ public class KademliaNode<TId, TC>: IKademliaNodeApi<TId, TC>
         throw new NotImplementedException();
     }
 
-    public Task<bool> StartAsync(INode<TId, TC> bootstrapNode)
+    public Task<bool> StartAsync(Node<TId, TC> bootstrapNode)
     {
         throw new NotImplementedException();
     }
@@ -46,8 +47,15 @@ public class KademliaNode<TId, TC>: IKademliaNodeApi<TId, TC>
         throw new NotImplementedException();
     }
 
-    public bool IsRunning { get; }
-    public IMessageSender<TId, TC> MessageSender { get; }
+    bool IKademliaNodeApi<TId, TC>.IsRunning()
+    {
+        throw new NotImplementedException();
+    }
+
+    IMessageSender<TId, TC> IKademliaNodeApi<TId, TC>.MessageSender()
+    {
+        throw new NotImplementedException();
+    }
     public KademliaMessage<TId, TC, TData> OnMessage<TData>(KademliaMessage<TId, TC, TData> message) where TData : class
     {
         throw new NotImplementedException();

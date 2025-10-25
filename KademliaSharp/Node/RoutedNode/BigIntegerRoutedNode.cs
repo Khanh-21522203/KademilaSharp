@@ -1,12 +1,11 @@
 using System.Numerics;
-using KademliaSharp.Connection;
 
 namespace KademliaSharp.Node.RoutedNode;
 
-public class BigIntegerRoutedNode<TC>(BigInteger distance) : RoutedNode<BigInteger, TC>(distance)
-    where TC : IConnection
+public class BigIntegerRoutedNode(BigInteger id, BigInteger distance)
+    : RoutedNode<BigInteger>(id, distance)
 {
-    public override int CompareTo(RoutedNode<BigInteger, TC> other)
+    protected override int CompareTo(RoutedNode<BigInteger> other)
     {
         return Distance.CompareTo(other.Distance);
     }

@@ -3,11 +3,7 @@ using KademliaSharp.Connection;
 
 namespace KademliaSharp.Model;
 
-public class LookupAnswer<TId, TC, TK, TV>: Answer<TId, TC>
+public record LookupAnswer<TId, TC, TK, TV>(TK Key, TV Value, Result Result)
     where TId : INumber<TId>
     where TC : IConnection
-{
-    private TK _key;
-    private TV _value;
-    private Result _result = Result.Failed;
-}
+{ }

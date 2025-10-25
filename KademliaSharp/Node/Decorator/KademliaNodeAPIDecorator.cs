@@ -5,6 +5,7 @@ using KademliaSharp.Node.Strategies;
 using KademliaSharp.protocol.handler;
 using KademliaSharp.protocol.message;
 using KademliaSharp.RoutingTable;
+using KademliaSharp.RoutingTable.Bucket;
 
 namespace KademliaSharp.Node.Decorator;
 
@@ -13,15 +14,12 @@ public abstract class KademliaNodeApiDecorator<TId, TC> (IKademliaNodeApi<TId, T
     where TC : IConnection
 {
     private readonly IKademliaNodeApi<TId, TC> _kademliaNode = kademliaNode;
-    public TC GetConnectionInfo() => _kademliaNode.GetConnectionInfo();
-
-    public TId GetId() => _kademliaNode.GetId();
 
     public IRoutingTable<TId, TC, IBucket<TId, TC>> GetRoutingTable() => _kademliaNode.GetRoutingTable();
 
     public void Start() => _kademliaNode.Start();
 
-    public Task<bool> StartAsync(INode<TId, TC> bootstrapNode) => _kademliaNode.StartAsync(bootstrapNode);
+    public Task<bool> StartAsync(Node<TId, TC> bootstrapNode) => _kademliaNode.StartAsync(bootstrapNode);
 
     public void Stop() => _kademliaNode.Stop();
 

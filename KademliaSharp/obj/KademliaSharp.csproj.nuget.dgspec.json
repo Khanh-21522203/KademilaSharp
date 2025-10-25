@@ -43,6 +43,28 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.59.0, )"
+            },
+            "MagicOnion.Client": {
+              "target": "Package",
+              "version": "[6.1.7, )"
+            },
+            "MagicOnion.Server": {
+              "target": "Package",
+              "version": "[6.1.7, )"
+            },
+            "MessagePack": {
+              "target": "Package",
+              "version": "[2.5.187, )"
+            },
+            "Microsoft.AspNetCore.Server.Kestrel": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

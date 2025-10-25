@@ -4,10 +4,7 @@ using KademliaSharp.Connection;
 
 namespace KademliaSharp.Model;
 
-public class StoreAnswer<TId, TC, TK>: Answer<TId, TC>
+public class StoreAnswer<TId, TC, TK>(TK key, Result result)
     where TId : INumber<TId>
     where TC : IConnection
-{
-    private TK _key;
-    private Result _result = Result.Failed;
-}
+{ }

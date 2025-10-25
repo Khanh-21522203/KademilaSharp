@@ -4,16 +4,17 @@ using KademliaSharp.Node.Strategies;
 using KademliaSharp.protocol.handler;
 using KademliaSharp.protocol.message;
 using KademliaSharp.RoutingTable;
+using KademliaSharp.RoutingTable.Bucket;
 
 namespace KademliaSharp.Node.NodeAPI;
 
-public interface IKademliaNodeApi<TId, TC>: INode<TId, TC>
+public interface IKademliaNodeApi<TId, TC>
     where TId : INumber<TId>
     where TC : IConnection
 {
     IRoutingTable<TId, TC, IBucket<TId, TC>> GetRoutingTable();
     void Start();
-    Task<bool> StartAsync(INode<TId, TC> bootstrapNode);
+    Task<bool> StartAsync(Node<TId, TC> bootstrapNode);
     void Stop();
     void StopImmediate();
     bool IsRunning();

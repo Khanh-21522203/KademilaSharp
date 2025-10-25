@@ -3,7 +3,7 @@ using KademliaSharp.Connection;
 
 namespace KademliaSharp.Node.Decorator;
 
-public class DateAwareNodeDecorator<TId, TC>(INode<TId, TC> node) : NodeDecorator<TId, TC>(node)
+public class DateAwareNodeDecorator<TId, TC>(Node<TId, TC> node) : NodeDecorator<TId, TC>(node)
     where TId : INumber<TId>
     where TC : IConnection
 {

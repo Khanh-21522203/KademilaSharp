@@ -1,11 +1,10 @@
 using System.Numerics;
-using KademliaSharp.Connection;
 
 namespace KademliaSharp.Node.RoutedNode;
 
-public abstract class RoutedNode<TI, TC>(TI distance): IComparable, INode<TI, TC>
+public abstract class RoutedNode<TI>(TI id, TI distance)
+    : Node<TI>(id), IComparable
     where TI : INumber<TI>
-    where TC : IConnection
 {
     public readonly TI Distance = distance;
     
@@ -14,18 +13,9 @@ public abstract class RoutedNode<TI, TC>(TI distance): IComparable, INode<TI, TC
         return obj switch
         {
             null => 1,
-            RoutedNode<TI, TC> other => CompareTo(other),
-            _ => throw new ArgumentException($"Object must be of type {nameof(RoutedNode<TI, TC>)}")
+            RoutedNode<TI> other => CompareTo(other),
+            _ => throw new ArgumentException($"Object must be of type {nameof(RoutedNode<TI>)}")
         };
-    } 
-    public abstract int CompareTo(RoutedNode<TI, TC> other);
-    public TC GetConnectionInfo()
-    {
-        throw new NotImplementedException();
     }
-
-    public TI GetId()
-    {
-        throw new NotImplementedException();
-    }
+    protected abstract int CompareTo(RoutedNode<TI> other);
 }

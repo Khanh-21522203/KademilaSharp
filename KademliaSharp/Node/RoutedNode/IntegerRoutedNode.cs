@@ -1,11 +1,10 @@
-using KademliaSharp.Connection;
 
 namespace KademliaSharp.Node.RoutedNode;
 
-public class IntegerRoutedNode<TC>(int distance) : RoutedNode<int, TC>(distance)
-    where TC : IConnection
+public class IntegerRoutedNode<TC>(int id, int distance)
+    : RoutedNode<int>(id, distance)
 {
-    public override int CompareTo(RoutedNode<int, TC> other)
+    protected override int CompareTo(RoutedNode<int> other)
     {
         return Distance.CompareTo(other.Distance);
     }
