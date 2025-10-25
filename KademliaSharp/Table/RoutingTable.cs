@@ -1,4 +1,4 @@
-namespace KademliaSharp.RoutingTable;
+namespace KademliaSharp.Table;
 
 public class RoutingTable
 {

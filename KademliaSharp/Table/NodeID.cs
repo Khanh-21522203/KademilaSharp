@@ -1,8 +1,8 @@
 using System.Numerics;
 
-namespace KademliaSharp.RoutingTable;
+namespace KademliaSharp.Table;
 
-public readonly record struct NodeId(byte[] Id)
+public readonly record struct NodeId(byte[] Id): IComparable<NodeId>
 {
     public int CompareTo(NodeId other)
     {
@@ -16,6 +16,19 @@ public readonly record struct NodeId(byte[] Id)
         }
 
         return 0;
+    }
+    
+    public bool Equals(NodeId other) => Id.AsSpan().SequenceEqual(other.Id);
+
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            int hash = 17;
+            foreach (var b in Id)
+                hash = hash * 31 + b;
+            return hash;
+        }
     }
     
     public NodeId XorDistance(NodeId other)

@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace KademliaSharp.RoutingTable;
+namespace KademliaSharp.Table;
 
 public record struct Contact(NodeId NodeId, IPEndPoint EndPoint)
 {

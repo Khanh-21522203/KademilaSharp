@@ -1,6 +1,6 @@
 using KademliaSharp.Utils.Collections;
 
-namespace KademliaSharp.RoutingTable;
+namespace KademliaSharp.Table;
 
 public interface IBucket
 {
