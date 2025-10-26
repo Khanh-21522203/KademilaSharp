@@ -15,25 +15,25 @@ public class NodeHeap(NodeId target)
         }
     }
     
-    public bool TryPop(out Contact? contact)
+    public bool TryPop(out Contact contact)
     {
         if (_heap.Count > 0)
         {
             contact = _heap.Dequeue();
             return true;
         }
-        contact = null!;
+        contact = default;
         return false;
     }
 
-    public bool TryPeek(out Contact? contact)
+    public bool TryPeek(out Contact contact)
     {
         if (_heap.Count > 0)
         {
             contact = _heap.Peek();
             return true;
         }
-        contact = null!;
+        contact = default;
         return false;
     }
     
